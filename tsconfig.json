@@ -1,13 +1,10 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "target": "ESNext",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "target": "ESNext",
-    "allowJs": true,
-    "jsx": "react-jsx",    // 👈 Add this line to support JSX/TSX
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    "outDir": "dist",
+    "declaration": true,
     "strict": true
   },
   "include": ["src"]

@@ -1,13 +1,18 @@
 import fs from "fs";
 import path from "path";
-export const getLogos = () => {
-    const folderPath = path.join(process.cwd(), "public/assets/img/logo");
+/**
+ * Fetches logo file names from a specified folder.
+ * @param folderPath - The relative path to the logos folder.
+ * @returns An array of logo file names.
+ */
+export function getLogos(folderPath = "public/assets/img/home1/logo") {
     try {
-        const files = fs.readdirSync(folderPath);
+        const directoryPath = path.join(process.cwd(), folderPath);
+        const files = fs.readdirSync(directoryPath);
         return files.filter(file => /\.(png|jpg|jpeg|svg|webp)$/i.test(file));
     }
     catch (error) {
         console.error("Error reading logo directory:", error);
         return [];
     }
-};
+}
