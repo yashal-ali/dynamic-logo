@@ -6,7 +6,7 @@ import path from "path";
  * @param folderPath - The relative path to the logos folder.
  * @returns An array of logo file names.
  */
-export function getLogos(folderPath: string = "public/assets/img/home1/logo"): string[] {
+export function getLogos(folderPath: string ): string[] {
   try {
     const directoryPath = path.join(process.cwd(), folderPath);
     const files = fs.readdirSync(directoryPath);
