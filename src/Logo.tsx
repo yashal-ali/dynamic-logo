@@ -1,21 +1,15 @@
-import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
+let Image;
+try {
+  Image = require("next/image").default;
+} catch (error) {
+  console.warn("next/image not found, using fallback <img>");
+  Image = "img"; // Fallback to <img> if next/image is unavailable
+}
 
-const logoBasePath = "/assets/img/home1/logo/";
-
-const Logo = () => {
-  const searchParams = useSearchParams();
-  const logoNumber = searchParams.get("logoNumber") || "1";
-
-  return (
-    <Image
-      src={`${logoBasePath}Logo-v${logoNumber}.png`}
-      alt={`Logo ${logoNumber}`}
-      width={100}
-      height={50}
-    />
-  );
+const Logo = ({ src, alt }: { src: string; alt: string }) => {
+  return <Image src={src} alt={alt} width={100} height={50} />;
 };
 
 export default Logo;
